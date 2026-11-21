@@ -2364,6 +2364,86 @@
           "eta": 306
         }
       ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1
+    },
+    {
+      "tag": "note",
+      "msg": "Проверка возврата 1.4, ручной вызов. Версия 1.4, исправленный скрипт, после отката.\nВход: eta(900, 4, 90, \"moving\"). Ожидание 315 с, табло 6 мин.\nТрасса: проверки статуса, расстояния и скорости пройдены, return на строке 10 вернул 315 с.\nВывод: правка ETA сохранилась после отката. Задержка 90 с учитывается.",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 0,
+          "speed": 4,
+          "delay": 90,
+          "status": "moving",
+          "eta": 0
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 90
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -1660,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 1620,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 3060,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 306
+        }
+      ]
     }
   ],
   "draft": "def eta(distance_m, speed_mps, delay_s, status):\n    if status != \"moving\":\n        return None\n    if distance_m < 0:\n        return None\n    if distance_m == 0:\n        return 0\n    if speed_mps <= 0:\n        return None\n    return distance_m / speed_mps + delay_s"
