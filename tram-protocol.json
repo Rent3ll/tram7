@@ -1,0 +1,2370 @@
+{
+  "format": "tram-lab-1",
+  "scenario": "jam",
+  "elapsed": 0,
+  "version": "1.4",
+  "stop": 2,
+  "dir": -1,
+  "active": "def eta(distance_m, speed_mps, delay_s, status):\n    if status != \"moving\":\n        return None\n    if distance_m < 0:\n        return None\n    if distance_m == 0:\n        return 0\n    if speed_mps <= 0:\n        return None\n    return distance_m / speed_mps + delay_s",
+  "events": [
+    {
+      "tag": "start",
+      "msg": "Открыт стенд. Исходный скрипт ETA v1.4.",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 1. Обычное движение, версия 1.4, остановка Мост, направление К Депо, T+0. Вагон 701.\nВходы функции: distance_m = 900, speed_mps = 12, delay_s = 0, status = moving.\nОжидание до расчёта: 900 / 12 + 0 = 75 с. Табло: ceil(75 / 60) = 2 мин.\nФакт в таблице: сырые метры 1800, метры на пульте 1800, знаки +1 и +1, ответ скрипта 75 с.\nВывод: совпало. Задержка нулевая, поэтому прибавка не видна. Для проверки формулы нужен опыт с задержкой.",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 75
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 1, продолжение. Обычное движение, версия 1.4, Мост, К Депо, T+15. Вагон 701.\nВходы функции: distance_m = 720, speed_mps = 12, delay_s = 0, status = moving.\nОжидание: 720 / 12 + 0 = 60 с. Табло: 1 мин.\nФакт в таблице: сырые метры 1980, метры на пульте 1980, ответ скрипта 60 с.\nСравнение с T+0: вагон сместился на 180 м за 15 с, что дает скорость 12 м/с. Расстояние уменьшилось с 900 до 720 м.\nВывод: совпало. Формула расстояние / скорость работает на обоих шагах.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1980,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 720,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 60
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 1050,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1650,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 165
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3625,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -925,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -84.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3285,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 585,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 65
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 4710,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2010,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 201
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Дефект, Обычное движение, T+15, версия 1.4, Мост, К Депо. Вагон 705.\nВходы функции: distance_m = -925, speed_mps = 11, delay_s = 0, status = moving.\nОжидание: None, потому что остановка уже позади вагона.\nФакт: ответ скрипта -84.09 с.\nВывод: скрипт не проверяет отрицательное расстояние. Возвращается отрицательное время, которое не должно попасть на табло. Причина: в исходном коде нет проверки distance_m < 0.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1980,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 720,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 60
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 1050,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1650,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 165
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3625,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -925,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -84.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3285,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 585,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 65
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 4710,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2010,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 201
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Пробка",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 2. Пробка на перегоне, версия 1.4, Мост, К Депо, T+0. Вагон 701.\nВходы функции: distance_m = 900, speed_mps = 4, delay_s = 90, status = moving.\nОжидание до расчёта: 900 / 4 + 90 = 315 с. Табло: ceil(315 / 60) = 6 мин.\nФакт в таблице: скорость 4, задержка 90, ответ скрипта 225 с.\nВывод: ответ 225 = 900 / 4. Задержка 90 с не учтена. Какой вход проигнорирован: delay_s.",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 4,
+          "delay": 90,
+          "status": "moving",
+          "eta": 225
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Поломка",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 3. Сломанный трамвай, версия 1.4, Мост, К Депо, T+0.\nВагон 701: distance_m = 900, speed_mps = 0, delay_s = 0, status = broken.\nОжидание: None (нет прогноза для сломанного вагона).\nФакт: ответ скрипта ∞, на табло «∞ · неверный прогноз».\nВагон 703: distance_m = 1800, speed_mps = 10, delay_s = 0, status = moving.\nОжидание: 180 с. Факт: 180 с, на табло 3 мин.\nВывод: скрипт не проверяет статус broken. Для 701 бесконечность возникает из деления на ноль (скорость 0). Пассажир, ожидающий 701, видит бессмысленное значение. Для 703 прогноз корректный: это альтернативный вагон на том же направлении.",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "broken",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 4. Перекрытие перегона, версия 1.4, Мост, К Депо, T+0. Ожидание до запуска.\nВагон 701 (blocked, скорость 0, расстояние 900): ожидание None, на табло «Нет прогноза».\nВагон 703 (blocked, скорость 0, расстояние 1800): ожидание None, на табло «Нет прогноза».\nЗатем направление К Вокзалу: вагон 702 (moving, скорость 9, расстояние 720): ожидание 80 с, на табло 2 мин.\nОжидание: на стороне К Депо прогноза нет у обоих вагонов, на стороне К Вокзалу прогноз есть.",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "broken",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Перекрытие",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 4, результат. Перекрытие перегона, версия 1.4, Мост, К Депо, T+0.\nВагоны 701 и 703 в статусе blocked, скорость 0.\nФакт в таблице: ответ скрипта ∞ у обоих. На табло оба «∞ · неверный прогноз».\nОжидание было None и «Нет прогноза». Совпадения нет.\nВывод: скрипт не проверяет статус blocked, поэтому деление на ноль даёт бесконечность.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 4, встречное направление. Перекрытие перегона, версия 1.4, Мост, К Вокзалу, T+0.\nВагон 702: moving, скорость 9, расстояние 720. Ожидание 80 с, табло 2 мин.\nФакт: ответ скрипта 80, табло 2 мин. Совпало.\nВывод: перекрытие одной стороны не влияет на встречное направление. Прогноз для 702 корректный.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Опыт 4, поправка. Перекрытие перегона, версия 1.4, Мост, К Вокзалу, T+0.\nВагон 704: moving, скорость 10, расстояние 2160. Ожидание 216 с, табло 4 мин.\nФакт: ответ скрипта 216, табло 4 мин. Совпало.\nВывод: встречное направление работает корректно и для второго вагона.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Контракт eta(distance_m, speed_mps, delay_s, status).\n\nВремя до прибытия (число в секундах) считаем, только если статус moving и вагон ещё не проехал остановку.\n1) Вагон до остановки (distance_m больше 0) и скорость больше 0: время = distance_m / speed_mps + delay_s.\n2) Вагон уже на остановке (distance_m = 0): время = 0, даже если скорость 0 или задержка не нулевая.\n\nПрогноза нет (None) в трёх случаях:\n- статус broken или blocked (вагон сломан или перекрыт);\n- вагон уже проехал остановку (distance_m меньше 0);\n- вагон в рейсе до остановки, но скорость 0 или меньше (делить на неё нельзя).\n\n0 и None означают разное: 0 значит, что вагон уже на остановке и прибывает сейчас; None значит, что прогноза не будет вообще.\n\nЕдиницы: distance_m в метрах, speed_mps в метрах в секунду, delay_s в секундах, результат в секундах.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "> eta(900, 0, 0, \"blocked\")\n  строка 2 · return | distance_m=900, speed_mps=0, delay_s=0, status=blocked\n← ∞ · неверный прогноз\n\nТрассировка исходного скрипта, вагон 701, перекрытие, T+0.\nВход: distance_m=900, speed_mps=0, delay_s=0, status=blocked. Ожидание: None.\nСтрока 2 выполнила return distance_m / speed_mps. Статус blocked не проверяется, делитель 0 даёт бесконечность.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": "∞"
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": -69.0909090909091
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "script",
+      "msg": "Скрипт применён",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "code": "def eta(distance_m, speed_mps, delay_s, status):\n    if status != \"moving\":\n        return None\n    if distance_m < 0:\n        return None\n    if distance_m == 0:\n        return 0\n    if speed_mps <= 0:\n        return None\n    return distance_m / speed_mps + delay_s"
+    },
+    {
+      "tag": "checks",
+      "msg": "Проверки: 9/9",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "checks": [
+        {
+          "name": "Норма",
+          "expected": 75,
+          "seen": 75,
+          "pass": true
+        },
+        {
+          "name": "Пробка: скорость и задержка",
+          "expected": 315,
+          "seen": 315,
+          "pass": true
+        },
+        {
+          "name": "Поломка даже при устаревшей ненулевой скорости",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Перекрытие без известного времени",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Остановка уже позади",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Трамвай у остановки",
+          "expected": 0,
+          "seen": 0,
+          "pass": true
+        },
+        {
+          "name": "Нулевая скорость до остановки",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Направление и движение вагона 701",
+          "expected": 1,
+          "seen": 1,
+          "pass": true
+        },
+        {
+          "name": "Направление и движение вагона 702",
+          "expected": -1,
+          "seen": -1,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 10. Исправленный скрипт применён, версия 1.4. Статус в редакторе: «Скрипт применён».\nТрассировка eta(900, 0, 0, \"blocked\"): ожидание None. Факт: строка 2 · if проверила status, строка 3 · return вернула None. Итог: None · нет прогноза.\nПроверка ETA и направление: 9 из 9.\nВывод: исправленный скрипт проверяет статус раньше деления. Для blocked деление на скорость 0 не выполняется, поэтому ∞ исчезает. Все 7 проверок расчёта и 2 проверки направления пройдены. Направление в версии 1.4 работает верно, как и до исправления.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Пробка",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 11, пробка на исправленном скрипте. Версия 1.4, Мост, К Депо, T+0. Вагон 701.\nОжидание: ответ скрипта 315 с, табло 6 мин. Факт: ответ скрипта 315 с, табло 6 мин (строка 703 — 3 мин, строка 701 — 6 мин).\nСравнение с опытом 2: исходный скрипт выдавал 225 с (4 мин), исправленный выдаёт 315 с (6 мин). Совпало с расчётом.\nВывод: задержка 90 с теперь учитывается, ответ соответствует расчёту 900 / 4 + 90 = 315.",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 4,
+          "delay": 90,
+          "status": "moving",
+          "eta": 315
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Поломка",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 12, поломка на исправленном скрипте. Версия 1.4, Мост, К Депо, T+0. Вагоны 701 и 703.\nОжидание: 701 ответ None, табло «Нет прогноза». 703 ответ 180 с, табло 3 мин.\nФакт: 701 ответ None, табло «Нет прогноза». 703 ответ 180 с, табло 3 мин.\nСравнение с опытом 3: раньше 701 показывал ∞ и «∞ · неверный прогноз», теперь «Нет прогноза». Совпало с ожиданием.\nВывод: статус broken проверяется до деления, поэтому бессмысленное значение на табло исчезло. Вагон 703 продолжает давать прогноз и служит альтернативой на том же направлении.",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "broken",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 13, перекрытие на исправленном скрипте. Версия 1.4, Мост, T+0. Ожидание до запуска.\nК Депо: вагон 701 (blocked, скорость 0) ответ None, табло «Нет прогноза». Вагон 703 (blocked, скорость 0) ответ None, табло «Нет прогноза».\nК Вокзалу: вагон 702 ответ 80 с, табло 2 мин. Вагон 704 ответ 216 с, табло 4 мин.",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "broken",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Перекрытие",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 13, результат. Перекрытие перегона, версия 1.4, Мост, T+0.\nК Депо: 701 ответ None, табло «Нет прогноза». 703 ответ None, табло «Нет прогноза».\nК Вокзалу: 702 табло 2 мин, 704 табло 4 мин.\nСравнение с опытом 4: раньше у 701 и 703 было ∞ и «∞ · неверный прогноз», теперь None и «Нет прогноза». Совпало с ожиданием.\nВывод: статус blocked проверяется до деления. Сторона, где вагоны остановлены, не даёт прогноза. Встречное направление работает без изменений, поэтому «Нет прогноза» означает именно перекрытие, а не ошибку расчёта.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 14, граничные случаи, исправленный скрипт, версия 1.4.\nА. eta(0, 0, 30, \"moving\"): ответ 0 с. Вагон на остановке получает 0 даже при нулевой скорости и задержке 30 с. Проверка distance == 0 сработала на строке 6.\nБ. eta(900, 0, 0, \"moving\"): ответ None. Вагон в рейсе до остановки со скоростью 0 прогноза не имеет. Сработала проверка скорости на строке 8.\nВ. eta(-900, 12, 0, \"moving\"): ответ None. Остановка позади вагона. Сработала проверка на строке 4.\nВывод: 0 означает «прибывает сейчас», None означает «прогноза нет». Эти два значения на табло показываются по-разному.",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1800,
+          "speed": 0,
+          "delay": 0,
+          "status": "blocked",
+          "eta": null
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -760,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 720,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 80
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2160,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 216
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Обычное движение",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 15, остановка впереди и позади вагона. Обычное движение, версия 1.4, Мост, К Депо, T+15.\nВпереди: 701 (расстояние 720, знак +), ответ 60 с, табло 1 мин. 703 (расстояние 1650, знак +), ответ 165 с, табло 3 мин. Оба видны на табло.\nПозади: 705 (расстояние -925, знак -), ответ None, на табло не показан.\nВывод: знак расстояния определяет, учитывается ли вагон. Положительное расстояние даёт прогноз и место на табло, отрицательное означает, что остановка уже позади, и вагон исчезает.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1980,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 720,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 60
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 1050,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1650,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 165
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3625,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -925,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3285,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 585,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 65
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 4710,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2010,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 201
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Шаг 16, соседний случай. Вагон 703, в рейсе, T+15, Мост, К Депо.\nВход: distance_m=1650, speed_mps=10, delay_s=0, status=moving. Ожидание: 165 с.\nТрассировка: проверки статуса, расстояния, нулевого расстояния и скорости пройдены, return на строке 10 вернул 165 с.\nВывод: ветка «вагон в рейсе до остановки» дает число. Поэтому исправление не убрало прогноз для обычных вагонов, а только отсекло неверные случаи.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1980,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 720,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 60
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 1050,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1650,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 165
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3625,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -925,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3285,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 585,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 65
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 4710,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 2010,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 201
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "version",
+      "msg": "Активирована версия 1.5",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.5",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.5",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "checks",
+      "msg": "Проверки: 7/9",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.5",
+      "stop": 3,
+      "direction": -1,
+      "checks": [
+        {
+          "name": "Норма",
+          "expected": 75,
+          "seen": 75,
+          "pass": true
+        },
+        {
+          "name": "Пробка: скорость и задержка",
+          "expected": 315,
+          "seen": 315,
+          "pass": true
+        },
+        {
+          "name": "Поломка даже при устаревшей ненулевой скорости",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Перекрытие без известного времени",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Остановка уже позади",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Трамвай у остановки",
+          "expected": 0,
+          "seen": 0,
+          "pass": true
+        },
+        {
+          "name": "Нулевая скорость до остановки",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Направление и движение вагона 701",
+          "expected": 1,
+          "seen": -1,
+          "pass": false
+        },
+        {
+          "name": "Направление и движение вагона 702",
+          "expected": -1,
+          "seen": 1,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Регрессия патча 1.5. Обычное движение, Мост, направление К Депо и К Вокзалу.\nT+0.\n701: сырые метры 1800, сырой знак +1; метры на пульте 1800, знак пульта -1. Расстояние для ETA -900, ответ None. Табло К Депо: вагона нет.\n702: сырые метры 3420, сырой знак -1; метры на пульте 3420, знак пульта +1. Расстояние -720, ответ None. Табло К Депо: вагона нет.\n705: сырые метры 3460, сырой знак +1; метры на пульте 3460, знак пульта -1. Расстояние 760, ответ 69.09 с. Табло К Вокзалу: 705, 2 мин.\nT+15.\n701: сырые метры 1980, сырой знак +1; метры на пульте 1620, знак пульта -1. Расстояние -1080, ответ None.\n702: сырые метры 3285, сырой знак -1; метры на пульте 3555, знак пульта +1. Расстояние -855, ответ None.\n705: сырые метры 3625, сырой знак +1; метры на пульте 3295, знак пульта -1. Расстояние 595, ответ 54.09 с. Табло К Вокзалу: 705, 1 мин.\nПоследствие для пассажира: на К Депо пропадают приближающиеся 701 и 703, а на К Вокзалу уходящий 705 выглядит приближающимся и показывает обратный отсчёт.\nПроверка: ETA 7 из 7, направление 0 из 2.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.5",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1620,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": -1080,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 750,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": -1950,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3295,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": 595,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": 54.09090909090909
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3555,
+          "rawDirection": -1,
+          "boardDirection": 1,
+          "distance": -855,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 5010,
+          "rawDirection": -1,
+          "boardDirection": 1,
+          "distance": -2310,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Цепочка: телеметрия (сырой знак) → обработка пультом (знак пульта меняется в версии 1.5) → расстояние для ETA (считается по знаку пульта) → функция eta (получает неверное расстояние и выдаёт ответ) → табло (показывает вагон по ответу функции).\nПочему правильная формула ETA не означает исправный патч: функция eta получает расстояние, посчитанное по неверному знаку, и формула считает корректно, но для неправильных входов. Поэтому ошибка видна в проверке направления, а не в проверке ETA.\nИсходный код ETA не меняется: исправление знака внутри функции не устранит ошибку пульта.",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.5",
+      "stop": 3,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1980,
+          "boardPosition": 1620,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": -1080,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 703,
+          "pos": 1050,
+          "boardPosition": 750,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": -1950,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 705,
+          "pos": 3625,
+          "boardPosition": 3295,
+          "rawDirection": 1,
+          "boardDirection": -1,
+          "distance": 595,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": 54.09090909090909
+        },
+        {
+          "id": 702,
+          "pos": 3285,
+          "boardPosition": 3555,
+          "rawDirection": -1,
+          "boardDirection": 1,
+          "distance": -855,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 704,
+          "pos": 4710,
+          "boardPosition": 5010,
+          "rawDirection": -1,
+          "boardDirection": 1,
+          "distance": -2310,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        }
+      ]
+    },
+    {
+      "tag": "version",
+      "msg": "Активирована версия 1.4",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": -1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Пробка",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Поломка",
+      "time": 0,
+      "scenario": "broken",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Перекрытие",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "incident",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Обычное движение",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 15,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 30,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 45,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 60,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "step",
+      "msg": "Шаг модели +15 с",
+      "time": 75,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1
+    },
+    {
+      "tag": "checks",
+      "msg": "Проверки: 9/9",
+      "time": 75,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "checks": [
+        {
+          "name": "Норма",
+          "expected": 75,
+          "seen": 75,
+          "pass": true
+        },
+        {
+          "name": "Пробка: скорость и задержка",
+          "expected": 315,
+          "seen": 315,
+          "pass": true
+        },
+        {
+          "name": "Поломка даже при устаревшей ненулевой скорости",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Перекрытие без известного времени",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Остановка уже позади",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Трамвай у остановки",
+          "expected": 0,
+          "seen": 0,
+          "pass": true
+        },
+        {
+          "name": "Нулевая скорость до остановки",
+          "expected": null,
+          "seen": null,
+          "pass": true
+        },
+        {
+          "name": "Направление и движение вагона 701",
+          "expected": 1,
+          "seen": 1,
+          "pass": true
+        },
+        {
+          "name": "Направление и движение вагона 702",
+          "expected": -1,
+          "seen": -1,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Откат на 1.4. Исправленный скрипт сохранён, исходник не загружался.\nОбычное движение, T+0 и T+15: 701 и 702 совпадают с ожиданием. Знаки пульта равны сырым знакам, расстояния 900 и 720 (T+0), 720 и 585 (T+15).\nПробка, T+0: 701 ответ 315 с, табло 6 мин. Поломка, T+0: 701 ответ None, табло «Нет прогноза». Правка ETA активна.\nПерекрытие, T+0: 701 и 703 «Нет прогноза». Встречная сторона не затронута.\n«На остановке»: T+1:15, 701 на Мосту, расстояние 0, ответ 0, табло «На остановке». 703 на табло 2 мин. Разница: «Нет прогноза» означает, что прогноза нет вообще, «На остановке» означает, что вагон уже прибыл.\nПроверка ETA и направления на 1.4: 9 из 9.\nРешение о выпуске 1.5: не выпускать. Причина: направление у 701 и 702 переворачивается, приближающийся вагон пропадает с табло К Депо, уходящий вагон 705 появляется на К Вокзалу с обратным отсчётом.\nУсловие повторной проверки 1.5: направление проверок 2 из 2, табло К Депо показывает 701 и 703, на К Вокзалу не появляется 705 при T+0 и T+15, проверка ETA и направления 9 из 9.",
+      "time": 75,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 3,
+      "direction": 1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 2700,
+          "boardPosition": 2700,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 0,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 0
+        },
+        {
+          "id": 703,
+          "pos": 1650,
+          "boardPosition": 1650,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 1050,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 105
+        },
+        {
+          "id": 705,
+          "pos": 4285,
+          "boardPosition": 4285,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -1585,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 2745,
+          "boardPosition": 2745,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 45,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 5
+        },
+        {
+          "id": 704,
+          "pos": 4110,
+          "boardPosition": 4110,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 1410,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 141
+        }
+      ]
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1
+    },
+    {
+      "tag": "note",
+      "msg": "Независимый прогон. Сценарий: Пробка. Остановка: Рынок. Направление: К Вокзалу. Версия 1.4. T+0. Вручную выбрано, остановка не проверялась раньше.\nОжидание до запуска:\n702: расстояние 1620, скорость 9, задержка 0, ответ 180 с, табло 3 мин.\n704: расстояние 3060, скорость 10, задержка 0, ответ 306 с, табло 6 мин.\nВагон 701 (расстояние 0, на Рынке) на этом направлении не отображается.",
+      "time": 0,
+      "scenario": "normal",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 0,
+          "speed": 12,
+          "delay": 0,
+          "status": "moving",
+          "eta": 0
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 90
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -1660,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 1620,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 3060,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 306
+        }
+      ]
+    },
+    {
+      "tag": "scenario",
+      "msg": "Сценарий: Пробка",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1
+    },
+    {
+      "tag": "reset",
+      "msg": "Сценарий возвращён к T+0",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1
+    },
+    {
+      "tag": "note",
+      "msg": "Результат независимого прогона. Пробка, Рынок, К Вокзалу, T+0.\n702: расстояние 1620, ответ 180 с, табло 3 мин. Совпало с ожиданием.\n704: расстояние 3060, ответ 306 с, табло 6 мин. Совпало с ожиданием.\nВывод: на остановке, не проверявшейся раньше, исправленный расчёт и табло работают так же, как на Мосту. Направление «К Вокзалу» корректно.",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 0,
+          "speed": 4,
+          "delay": 90,
+          "status": "moving",
+          "eta": 0
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 90
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -1660,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 1620,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 3060,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 306
+        }
+      ]
+    },
+    {
+      "tag": "note",
+      "msg": "Стабильный контроль, версия 1.4, до патча. Обычное движение, Мост, К Депо.\nT+0: 702 сырые метры 3420, сырой знак -1, метры на пульте 3420, знак пульта -1, расстояние 720, ответ 80 с, табло К Вокзалу 2 мин (это вагон 702 в направлении К Вокзалу).\nT+15: 702 сырые метры 3285, сырой знак -1, метры на пульте 3285, знак пульта -1, расстояние 585, ответ 65 с.\n705 при T+0: расстояние -760, ответ None. Мост позади, на табло К Депо не виден.\nЗнаки пульта совпадают с сырыми, значит версия 1.4 передаёт направление без искажений.",
+      "time": 0,
+      "scenario": "jam",
+      "version": "1.4",
+      "stop": 2,
+      "direction": -1,
+      "evidence": [
+        {
+          "id": 701,
+          "pos": 1800,
+          "boardPosition": 1800,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 0,
+          "speed": 4,
+          "delay": 90,
+          "status": "moving",
+          "eta": 0
+        },
+        {
+          "id": 703,
+          "pos": 900,
+          "boardPosition": 900,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": 900,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 90
+        },
+        {
+          "id": 705,
+          "pos": 3460,
+          "boardPosition": 3460,
+          "rawDirection": 1,
+          "boardDirection": 1,
+          "distance": -1660,
+          "speed": 11,
+          "delay": 0,
+          "status": "moving",
+          "eta": null
+        },
+        {
+          "id": 702,
+          "pos": 3420,
+          "boardPosition": 3420,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 1620,
+          "speed": 9,
+          "delay": 0,
+          "status": "moving",
+          "eta": 180
+        },
+        {
+          "id": 704,
+          "pos": 4860,
+          "boardPosition": 4860,
+          "rawDirection": -1,
+          "boardDirection": -1,
+          "distance": 3060,
+          "speed": 10,
+          "delay": 0,
+          "status": "moving",
+          "eta": 306
+        }
+      ]
+    }
+  ],
+  "draft": "def eta(distance_m, speed_mps, delay_s, status):\n    if status != \"moving\":\n        return None\n    if distance_m < 0:\n        return None\n    if distance_m == 0:\n        return 0\n    if speed_mps <= 0:\n        return None\n    return distance_m / speed_mps + delay_s"
+}
